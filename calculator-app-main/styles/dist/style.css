@@ -115,6 +115,12 @@ body {
   font-optical-sizing: auto;
   font-weight: 800;
 }
+@media screen and (max-width: 375px) {
+  body {
+    align-items: baseline;
+    padding-top: 30px;
+  }
+}
 
 .calculator {
   width: clamp(400px, 10vh, 450px);

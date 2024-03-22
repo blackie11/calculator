@@ -1,20 +1,20 @@
 # Frontend Mentor - Calculator app solution
 
-This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+-   [Overview](#overview)
+    -   [The challenge](#the-challenge)
+    -   [Screenshot](#screenshot)
+    -   [Links](#links)
+-   [My process](#my-process)
+    -   [Built with](#built-with)
+    -   [What I learned](#what-i-learned)
+    -   [Continued development](#continued-development)
+    -   [Useful resources](#useful-resources)
+-   [Author](#author)
+-   [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -24,90 +24,158 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
 Users should be able to:
 
-- See the size of the elements adjust based on their device's screen size
-- Perform mathmatical operations like addition, subtraction, multiplication, and division
-- Adjust the color theme based on their preference
-- **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
+-   See the size of the elements adjust based on their device's screen size
+-   Perform mathmatical operations like addition, subtraction, multiplication, and division
+-   Adjust the color theme based on their preference
+-   **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./images/Screen%20Shot%202024-03-22%20at%2005.13.39.png)
+![](./images/Screen%20Shot%202024-03-22%20at%2005.19.19.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Solution URL: [https://github.com/blackie11/calculator.git]
+-   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+-   Semantic HTML5 markup
+-   CSS custom properties
+-   Flexbox
+-   CSS Grid
+-   Responsive Design
+-   [vanilla Javascript](https://) - JS
+-   [Scss](https://) - Sass
+-   [Styled Components](https://styled-components.com/) - For styles
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learned how to toggle a theme and also change the theme dynamically using Javascript
+i also learned how to make a grid layout with ease using the repeat() function of css, while also making use of css custom properties mixed with the variable in scss to produce the theme
 
 To see how you can add code snippets, see below:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="header">
+    <h2>calc</h2>
+    <div class="theme-con">
+        <span class="theme-heading">THEME</span>
+        <div class="theme-num">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+        </div>
+        <div class="slider-container">
+            <input
+                type="range"
+                min="1"
+                max="3"
+                value="1"
+                class="slider"
+                id="themeSlider"
+            />
+        </div>
+    </div>
+</div>
 ```
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.slider-container {
+    width: 100%;
+    .slider {
+        -webkit-appearance: none;
+        width: 85%;
+        height: 15px;
+        border-radius: 5px;
+        background: var(--keypad-bg);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        cursor: pointer;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--toggle-bg);
+        cursor: pointer;
+    }
+}
+:root {
+    --theme-2-main-bg: hsl(0, 0%, 90%);
+    --theme-2-toggle-bg: hsl(0, 5%, 81%);
+    --theme-2-keypad-bg: hsl(0, 5%, 81%);
+    --theme-2-screen-bg: hsl(0, 0%, 93%);
+    --theme-2-key-bg: hsl(185, 42%, 37%);
+    --theme-2-key-shadow: hsl(185, 58%, 25%);
+    --theme-2-toggle-key-bg: hsl(25, 98%, 40%);
+    --theme-2-toggle-key-shadow: hsl(25, 99%, 27%);
+    --theme-2-function-key-bg: hsl(45, 7%, 89%);
+    --theme-2-function-key-shadow: hsl(35, 11%, 61%);
+    --theme-2-text-color: hsl(60, 10%, 19%);
+    --theme-2-text-white: hsl(0, 0%, 100%);
+}
+body {
+    // Default theme
+    --main-bg: var(--theme-1-main-bg);
+    --toggle-bg: var(--theme-1-toggle-bg);
+    --keypad-bg: var(--theme-1-keypad-bg);
+    --screen-bg: var(--theme-1-screen-bg);
+    --key-bg: var(--theme-1-key-bg);
+    --key-shadow: var(--theme-1-key-shadow);
+    --toggle-key-bg: var(--theme-1-toggle-key-bg);
+    --toggle-key-shadow: var(--theme-1-toggle-key-shadow);
+    --function-key-bg: var(--theme-1-function-key-bg);
+    --function-key-shadow: var(--theme-1-function-key-shadow);
+    --text-color: var(--theme-1-text-color);
+    --text-white: var(--theme-1-text-white);
 }
 ```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function applyTheme() {
+    const themeValue = parseInt(themeRange.value);
+    const selectedTheme = "theme-" + themeValue;
+    console.log(themeValue);
+    document.body.className = selectedTheme;
+    if (themeValue === 2 || themeValue === 3) {
+        const display = document.getElementById("display");
+        display.style.setProperty("color", "var(--text-color)");
+        title.style.setProperty("color", "var(--text-color)");
+    } else {
+        display.style.setProperty("color", "var(--text-white)");
+        title.style.setProperty("color", "var(--text-white)");
+    }
 }
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I will now focus on using javascript and other js libray to modify the DOM dynamically while also learning how to fetch json file fro some API .
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+-   [stackoverflow](https://www.stackoverflow.com) - This helped me twhen i was researching on other solution to this problem to compare and contrast my work. it also help in providing solution to some bugs i faced on completion of the project.
+-   [youtube](https://www.youtube.com) - This is an amazing resource libray that helped me when i was trying to learn a new concept that i needed to know to make this project a success. it helped me finally understand how the eval( ) works.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+-   Website - [https://blackie-portfolio.vercel.app/](https://www.your-site.com)
+-   Frontend Mentor - [@blackie11](https://www.frontendmentor.io/profile/yourusername)
+-   Twitter - [@GreatAhiakwo](https://www.twitter.com/yourusername)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+I want to medium to say a big thank you to my parent for all the effort and support, to my siblings for always encouraging me to my friends for also beliving in me.

@@ -38,8 +38,20 @@ function applyTheme() {
         display.style.setProperty("color", "var(--text-white)");
         title.style.setProperty("color", "var(--text-white)");
     }
+    //  function to save or store preferred theme to localStorage
+    localStorage.setItem("selectedTheme", selectedTheme);
 }
-// Apply theme initially
-applyTheme();
-// Listen to changes in the input range
+
+// function to retrive saved theme from localStorage
+function applyInitialTheme() {
+    const savedTheme = localStorage.getItem("selectedTheme");
+
+    if (savedTheme) {
+        document.body.className = savedTheme;
+        themeRange.value = savedTheme.split("-")[1];
+    } else {
+        applyTheme();
+    }
+}
+applyInitialTheme();
 themeRange.addEventListener("input", applyTheme);

@@ -119,6 +119,11 @@ body {
     font-family: "League Spartan", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
+
+    @media screen and (max-width: 375px) {
+        align-items: baseline;
+        padding-top: 30px;
+    }
 }
 
 .calculator {
